@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		function updateNamespaces() {
+			$.getJSON("/namespaces", function(namespaces) {
+				var list = $("#namespaces");
+				list.empty();
+				for (var i = 0; i < namespaces.length; i++) {
+					list.append("<li>" + namespaces[i] + "</li>");
+				}
+			});
+		}
+		$(document).ready(function() {
+			updateNamespaces();
+			setInterval(updateNamespaces, 5000);
+		});
+	</script>
+</head>
+<body>
+	<h1>Namespaces</h1>
+	<ul id="namespaces"></ul>
+</body>
+</html>
