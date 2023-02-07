@@ -39,12 +39,16 @@ func main() {
 		return
 	}
 
-	//Input manual
+	// Input namespace
+	var nsInput string
+	fmt.Print("Enter a name for the namespace: ")
+	fmt.Scanln(&nsInput)
+	fmt.Println("You entered:", nsInput)
 
 	// Define the namespace object
 	namespace := &corev1.Namespace{
 		ObjectMeta: metav1.ObjectMeta{
-			Name: "example-namespace1",
+			Name: nsInput,
 		},
 	}
 
